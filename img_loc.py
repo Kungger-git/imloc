@@ -10,7 +10,7 @@ class Positions:
         return os.chdir('/home/kali/Documents/imloc/')
 
 
-class disk:
+class Disk:
     def mount(seconds):
         os.system('sudo mount /dev/sda3 ~/Desktop')
         print(colorama.Fore.YELLOW,
@@ -28,7 +28,7 @@ class disk:
 
 def find_photos():
     Positions.target_dir()
-    disk.mount(2)
+    Disk.mount(2)
     for root, dirs, files in os.walk(os.getcwd()):
         for photo in files:
             if photo.endswith('.png') or photo.endswith('.jpeg') or photo.endswith('jpg'):
@@ -43,7 +43,7 @@ def find_photos():
                 sizes.append(os.path.getsize(os.path.join(root, photo)))
             else:
                 pass
-    disk.unmount()
+    Disk.unmount()
 
 
 if __name__ == '__main__':
