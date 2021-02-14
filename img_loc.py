@@ -19,7 +19,8 @@ class Disk:
         return 'Disk Mounted'
 
 
-    def unmount():
+    def unmount(seconds):
+        time.sleep(seconds)
         os.system('sudo umount /dev/sda3 ~/Desktop')
         print(colorama.Fore.YELLOW,
                 '\nDisk Unmounted\n', colorama.Style.RESET_ALL)
@@ -29,9 +30,11 @@ class Disk:
 def find_photos():
     Positions.target_dir()
     Disk.mount(2)
+    imgs = ('.jpg', '.jpeg', '.png')
     for root, dirs, files in os.walk(os.getcwd()):
+        dirs = dirs
         for photo in files:
-            if photo.endswith('.png') or photo.endswith('.jpeg') or photo.endswith('jpg'):
+            if photo.endswith(imgs):
                 found.append(os.path.join(root, photo))
                 print(colorama.Fore.GREEN,
                         f'[*] {photo}', colorama.Style.RESET_ALL)
@@ -43,11 +46,11 @@ def find_photos():
                 sizes.append(os.path.getsize(os.path.join(root, photo)))
             else:
                 pass
-    Disk.unmount()
+    Disk.unmount(2)
 
 
 if __name__ == '__main__':
-    found, sizes, non_existent = [], [], []
+    found, sizes, non_existent, fol = [], [], [], []
     colorama.init()
     find_photos()
     Positions.local_dir()
@@ -66,5 +69,9 @@ if __name__ == '__main__':
         for ex_photo in non_existent:
             i += 1
             f.write(f'{ex_photo}\n')
+
+    with open('Directories.txt', 'w') as f:
+        for dir in fol:
+            f.write(f'{dir}\n')
 
     print(f'Total Non Existent Photos: {i}')
