@@ -69,12 +69,12 @@ if __name__ == '__main__':
     print('Size of Found Photos: {:,}'.format(sum(sizes)))
 
     i = 0
-    with open('Ex_Photos.txt', 'w') as f:
+    with open('Ex_Photos_not_porn.txt', 'w') as f:
         for ex_photo in non_existent:
             i += 1
             f.write(f'{ex_photo}\n')
 
-    with open('Directories.txt', 'w') as f:
+    with open('Directories_img.txt', 'w') as f:
         for dir in fol:
             f.write(f'{dir}\n')
 
