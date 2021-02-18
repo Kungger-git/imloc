@@ -1,4 +1,4 @@
-<h1>List All Images for <b><i>Kali Linux</i></b></h1>
+<h1>List All Media for <b><i>Kali Linux</i></b></h1>
 
 <br><br><br><br>
 
