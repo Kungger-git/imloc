@@ -3,11 +3,13 @@ import os, colorama, time
 
 class Positions():
     def target_dir(self):
-        return os.chdir('/home/kali/Desktop')
+        os.chdir('/home/kali/Desktop')
+        return 'Transferred to target directory'
 
 
     def local_dir(self):
-        return os.chdir('/home/kali/Documents/imloc/')
+        os.chdir(origin)
+        return 'Transferred to original directory'
 
 
 class Disk():
@@ -50,6 +52,7 @@ def find_photos():
 
 
 if __name__ == '__main__':
+    origin = os.getcwd()
     found, sizes, non_existent, fol = [], [], [], []
     colorama.init()
     find_photos()
