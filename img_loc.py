@@ -34,7 +34,6 @@ def find_photos():
     Disk().mount(2)
     imgs = ('.jpg', '.jpeg', '.png')
     for root, dirs, files in os.walk(os.getcwd()):
-        dirs = dirs
         for photo in files:
             if photo.endswith(imgs):
                 found.append(os.path.join(root, photo))
@@ -47,7 +46,9 @@ def find_photos():
 
                 sizes.append(os.path.getsize(os.path.join(root, photo)))
             else:
-                pass
+                continue
+        for dir in dirs:
+            fol.append(os.path.join(root, dir))
     Disk().unmount(2)
 
 
