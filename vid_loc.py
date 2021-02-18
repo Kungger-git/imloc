@@ -61,8 +61,11 @@ if __name__ == '__main__':
     find_videos()
     Positions().local_dir()
 
+    if not os.path.exists('Records/'):
+        os.mkdir('Records/')
+
     i = 0
-    with open('Videos_Found.txt', 'w') as f:
+    with open('Records/Videos_Found.txt', 'w') as f:
         for video in found:
             i += 1
             f.write(f'{video}\n')
@@ -71,7 +74,7 @@ if __name__ == '__main__':
     print('Size of Found Videos: {:,}'.format(sum(sizes)))
 
     i = 0
-    with open('Ex_Videos_not_porn.txt', 'w') as f:
+    with open('Records/Ex_Videos_not_porn.txt', 'w') as f:
         for ex_video in non_existent:
             i += 1
             f.write(f'{ex_video}\n')

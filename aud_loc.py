@@ -65,8 +65,11 @@ if __name__ == '__main__':
     find_audio()
     Positions().local_dir()
 
+    if not os.path.exists('Records/'):
+        os.mkdir('Records/')
+
     i = 0
-    with open('Audios_Found.txt', 'w') as f:
+    with open('Records/Audios_Found.txt', 'w') as f:
         for audio in found:
             i += 1
             f.write(f'{audio}\n')
@@ -75,7 +78,7 @@ if __name__ == '__main__':
     print('Size of Found Audios: {:,}'.format(sum(sizes)))
 
     i = 0
-    with open('Ex_Audio_not_porn.txt', 'w') as f:
+    with open('Records/Ex_Audio_not_porn.txt', 'w') as f:
         for ex_audio in non_existent:
             i += 1
             f.write(f'{ex_audio}\n')
