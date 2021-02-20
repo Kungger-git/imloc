@@ -83,7 +83,7 @@ if __name__ == '__main__':
             i += 1
             f.write(f'{ex_audio}\n')
 
-    with open('Directories_aud.txt', 'w') as f:
+    with open('Records/Directories_aud.txt', 'w') as f:
         for dir in fol:
             f.write(f'{dir}\n')
 

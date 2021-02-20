@@ -79,7 +79,7 @@ if __name__ == '__main__':
             i += 1
             f.write(f'{ex_video}\n')
 
-    with open('Directories_vid.txt', 'w') as f:
+    with open('Records/Directories_vid.txt', 'w') as f:
         for dir in fol:
             f.write(f'{dir}\n')
 

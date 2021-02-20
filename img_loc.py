@@ -59,17 +59,17 @@ if __name__ == '__main__':
     find_photos()
     Positions().local_dir()
 
+    if not os.path.exists('Records/'):
+        os.mkdir('Records/')
+
     i = 0
-    with open('Photos_Found.txt', 'w') as f:
+    with open('Records/Photos_Found.txt', 'w') as f:
         for photo in found:
             i += 1
             f.write(f'{photo}\n')
 
     print('Total photos: {:,}'.format(i))
     print('Size of Found Photos: {:,}'.format(sum(sizes)))
-
-    if not os.path.exists('Records/'):
-        os.mkdir('Records/')
 
     i = 0
     with open('Records/Ex_Photos_not_porn.txt', 'w') as f:
